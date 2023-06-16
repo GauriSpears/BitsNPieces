@@ -1,4 +1,5 @@
 //нужно установить NuGet пакет NtApiDotNet
+uint TOKEN_ALL_ACCESS = (uint)((0x000F0000L) | (0x0001) | (0x0002) | (0x0004) | (0x0008) | (0x0010) | (0x0020) | (0x0040) | (0x0080) | (0x0100));
 //копируем токен процесса lsass.exe, чтобы получить привилегию SeCreateTokenPrivilege
 int pid = System.Diagnostics.Process.GetProcessesByName("lsass")[0].Id;
 NtProcess ntProcess = NtProcess.Open(pid, ProcessAccessRights.QueryLimitedInformation); //для XP использовать ProcessAccessRights.QueryInformation
